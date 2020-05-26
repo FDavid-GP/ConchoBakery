@@ -2,7 +2,6 @@
 require 'conexion.php';
 session_start();
 /*
-$ID = $_POST['ID'];
 $Nombre = $_POST['Nombre'];
 $ApellidoP = $_POST['ApellidoP'];
 $ApellidoM = $_POST['ApellidoM'];
