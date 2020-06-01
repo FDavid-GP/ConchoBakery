@@ -37,6 +37,7 @@
         
       <div class="card-body">
 <div class="form-group">
+<form name="formularioDatos" method="post" action="./php/guardarIng.php">
                             <div class="col-md-8">
                                 <input id="fname" name="name" type="text" placeholder="Nombre(s)" class="form-control">
                             </div>
@@ -48,16 +49,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <div class="col-md-8">
+				<input name="fecha" type="date">
+                            </div>
+                        </div>
+
+
                         
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" onclick="guardar()">Guardar</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
 				<button type="submit" id="can" class="btn btn-primary btn-lg" onclick="cancelar()">Cancelar</button>
                             </div>
                         </div>
 
       </div>
     </div>
+<form>
   </div>
 </div>
 	
