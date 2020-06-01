@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 
+<!--<div class="jumbotron mt-4">
+  <h1 class="display-4">Notes App Nodejs And Mongodb!</h1>
+  <p class="lead">A simple App to manage Notes developed with Nodejs, Express, Mongodb and Javascript Technologies</p>
+  <hr class="my-4">
+  <p>veniam voluptatibus aliquid unde sit Libero veniam similique ex reiciendis doloribus! Deleniti sunt cum ad est atque. Esse earum
+  </p>
+  <a class="btn btn-primary btn-lg" href="http://faztweb.com" role="button">FaztWeb</a>
+</div>-->
+
 
     <head>
 
@@ -64,13 +73,40 @@
   <th><?php echo $row['Contrasenia'];?></th>
   <th><?php echo $row['Tipo'];?></th>
   <td><button id="actualizar" type="submit"><a href=""><i class="fas fa-edit"></i></a></button></td>
+  <td> <form method="post" action="./php/eliminarUsuario.php">
+	<input type="hidden" name"Correo" value=<?php echo $row['Correo'];?>>
+	<input id="eliminar2" type="submit" value="Eliminar">
+  <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
 
+	</form>
+	</td>
 </tr>
 
 <?php
 }
 mysqli_close($conn);
 ?>
+
+<!--
+echo 	"<tr>";
+        echo	"<td> ".$row[Nombre]."</td>";
+        echo	"<td> ".$row['ApellidoP']."</td>";
+        echo	"<td> ".$row['ApellidoM']."</td>";
+        echo	"<td> ".$row['Correo']."</td>";
+        echo	"<td> ".$row['Contrasenia']."</td>";
+    echo    	"<td> ".$row['Tipo']."</td>";
+echo        	"<td><button id=\"actualizar\" type=\"submit\"><a href=\"\"><i class=\"fas fa-edit\"></i></a></button></td>";
+echo		"<td><button id=\"eliminar\" type=\"submit\" class=\"btn btn-danger btn-block btn-sm\" action=\"./php/eliminarUser.php\"><i id=\"tra\" class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></td>";          
+echo "</tr>";
+
+}
+
+//echo        "</table>";
+
+ 
+	mysqli_close($conexion);
+?>
+-->
 
 </table> 
 

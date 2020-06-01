@@ -18,6 +18,18 @@ width: 110%;
 height: 100%;
 }
 
+#actualizar{
+background: #37c3f3;
+border-radius: 10%;
+border-color: #37c3f3;
+}
+
+#eliminar2{
+background: red;
+border-radius: 10%;
+border-color: red;
+}
+
 #optionsG{
 border-radius: 5%;
 background:   #ffffff;
@@ -26,6 +38,12 @@ box-shadow: 2px 2px 5px  #181815 ;
 width: 30%;
 height: 50%;
 margin-left: 40%;
+margin-top: 5%;
+text-align: center;
+}
+
+#personal{
+margin-left: 20%;
 margin-top: 5%;
 text-align: center;
 }
