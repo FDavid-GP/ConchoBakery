@@ -92,3 +92,4 @@ Create Procedure SP_Ing_Delete( IN I_name VARCHAR(50))
 DELETE FROM Ingredientes
 WHERE NombreIng=I_name;
 
+call SP_User("root","root","root","root@root.com","root",1);

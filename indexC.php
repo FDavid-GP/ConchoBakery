@@ -45,39 +45,38 @@
   </div>
 </nav>
 
+
 <h3 align="center">
-Bienvenido
+Nuestros deliciosos panes
 </h3>
 
-<section class="card" id="optionsE">
-		<div class="card-body">
-      <ul class="navbar-nav ml-auto">
-            <a class="nav-link" href="formPan.html">Agregar Pan</a>
-          </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./formIng.html">Agregar nuevo ingrediente</a>
-          </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./ingredientes.php">Inventario de ingredientes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./panes.php">Inventario de Panes</a>
-          </li>
-<li class="nav-item">
-            <a class="nav-link" href="./reparaciones.html">Historial 1 (en mantenimiento)</a>
-          </li>
-<li class="nav-item">
-            <a class="nav-link" href="./reparaciones.html">Historial 2 (en mantenimiento)</a>
-          </li>
-<li class="nav-item">
-            <a class="nav-link" href="./reparaciones.html">Historial 3 (en mantenimiento)</a>
-          </li>
-	</ul>
+<div class="row">
+<?php
 
-		</div>
-</section>
+    $conn = mysqli_connect('localhost','root','resident2580','concho');
+    $result = mysqli_query($conn, "select * from Pan order by NombreP asc");
 
+ while($row = mysqli_fetch_array($result)) {
+?>
 
+<div class="col-md-3" id="cardP">
+    <div class="card" id="panesC">
+      <div class="card-body">
+    <h4 class="card-title d-flex justify-content-between align-items-center">
+           <?php echo $row['NombreP'];?> 
+    </h4>
+<center><img src=<?php echo $row['Imag'];?>></center>
+        <p>A solo $<?php echo $row['precio'];?> c/u</p>
+
+     </div>
+    </div>
+  </div>	  
+
+<?php
+}
+mysqli_close($conn);
+?>
+</div>
         <!-- Footer -->
         
 

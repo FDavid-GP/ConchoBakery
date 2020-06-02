@@ -36,8 +36,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
    
-    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./indexE.html">Volver</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="./signin.html">Salir</a>
           </li>
@@ -46,22 +48,50 @@
   </div>
 </nav>
 
+
 <h3 align="center">
-Nuestros deliciosos panes
+Nuestros panes
 </h3>
 
-<div class="col-md-3">
-    <div class="card">
+<div class="row">
+<?php
+
+    $conn = mysqli_connect('localhost','root','resident2580','concho');
+    $result = mysqli_query($conn, "select * from Pan order by NombreP asc");
+
+ while($row = mysqli_fetch_array($result)) {
+?>
+
+<div class="col-md-3" id="cardP">
+    <div class="card" id="panesC">
       <div class="card-body">
     <h4 class="card-title d-flex justify-content-between align-items-center">
-         Nombre de Pan 
-    </h4>
-<center><img src="https://www.arandasbakery.com/wp-content/uploads/2016/11/Concha-vanilla-AB-160922-005-600x600.png"></center>
-        <p>Precio $3 c/u</p>
+           <?php echo $row['NombreP'];?> 
+    </h4> 
+<center><img src=<?php echo $row['Imag'];?>></center>
+        <p>A solo $<?php echo $row['precio'];?> c/u</p>
+	<p>Quedan <?php echo $row['cantidad'];?> piezas de pan </p>
+
+<div><button id="actualizar" type="submit"><a href=""><i class="fas fa-edit"></i></a></button>
+<form method="post" action="./php/">
+	<input type="hidden" name"Nombre" value=<?php echo $row['NombreP'];?>>
+	<input id="eliminar2" type="submit" value="Eliminar">
+  <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
+
+	</form>
+</div>
+
 
      </div>
     </div>
-  </div>	        <!-- Footer -->
+  </div>	  
+
+<?php
+}
+mysqli_close($conn);
+?>
+</div>
+        <!-- Footer -->
         
 
         <!-- Javascript -->

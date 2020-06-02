@@ -16,12 +16,34 @@ border: 3px solid;
 box-shadow: 2px 2px 5px  #181815 ;
 width: 110%;
 height: 100%;
+margin-left: 5%%;
+margin-right: 2.5%;
+margin-bottom: 2%
+}
+
+#rep{
+margin-top: 10%;
+margin-left: 30%;
+width: 40%;
+}
+
+#cardP{
+margin-left: 2.5%;
+margin-right: 1.25%;
+}
+
+.row{
+margin-top: 5%;
 }
 
 #actualizar{
 background: #37c3f3;
 border-radius: 10%;
 border-color: #37c3f3;
+}
+
+#panesC{
+text-align: center;
 }
 
 #eliminar2{
@@ -42,8 +64,26 @@ margin-top: 5%;
 text-align: center;
 }
 
+#optionsE{
+border-radius: 5%;
+background:   #ffffff;
+border: 3px solid;
+box-shadow: 2px 2px 5px  #181815 ;
+width: 30%;
+height: 50%;
+margin-left: 35%;
+margin-top: 5%;
+text-align: center;
+}
+
 #personal{
 margin-left: 20%;
+margin-top: 5%;
+text-align: center;
+}
+
+#ing{
+margin-left: 30%;
 margin-top: 5%;
 text-align: center;
 }

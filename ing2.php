@@ -17,7 +17,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <title>Bootstrap 4 Carousel Template</title>
+        <title>Panaderia Concho</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
@@ -27,22 +27,80 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/media-queries.css">
 	<link href="./css/style.css" rel="stylesheet"/>
-	<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/main.css" rel="stylesheet"/>
 
     </head>
 
     <body>
-<section class="card" id="about">
-  <div class="card-body">
-    <center><h1>About</h1></center>
-    <p>
-      En panaderia Concho se elabora pan artesanal con tradicion europea desde hace 5 años en la ciudad de Yuriria, Gto. México, utilizando unicamente ingredientes de la mas alta calidad que son seleccionados por sus fundadores, el Chef Juan Carlos Arredondo y el Chef Francisco Gámez
-    </p>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+   
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./indexG.html">Volver</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./signin.html">Salir</a>
+          </li>
+      </ul>
+    </div>
   </div>
-  <div align ="center">
-    <img src="/img/logo4.png" id="ab">
-  </div>
-</section>
+</nav>
+
+	<table border=2px id="ing">
+		<tr>
+			<th>Ingrediente</th> <th>Cantidad</th> <th>Fecha de Caducidad</th> <th>Actualizar</th>  <th>Eliminar</th> 
+		</tr>   
+<?php
+
+    $conn = mysqli_connect('localhost','root','resident2580','concho');
+    $result = mysqli_query($conn, "select * from Ingredientes order by NombreIng asc");
+
+ while($row = mysqli_fetch_array($result)) {
+?>
+
+<tr>
+  <th><?php echo $row['NombreIng'];?></th>
+  <th><?php echo $row['Cantidad'];?></th>
+  <th><?php echo $row['fecha'];?></th>
+  <td><button id="actualizar" type="submit"><a href=""><i class="fas fa-edit"></i></a></button></td>
+  <td> <form method="post" action="./php/eliminarUsuario.php">
+	<input type="hidden" name"Nombre" value=<?php echo $row['NombreIng'];?>>
+	<input id="eliminar2" type="submit" value="Eliminar">
+  <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
+
+	</form>
+	</td>
+</tr>
+
+<?php
+}
+mysqli_close($conn);
+?>
+
+<!--
+echo 	"<tr>";
+        echo	"<td> ".$row[Nombre]."</td>";
+        echo	"<td> ".$row['ApellidoP']."</td>";
+        echo	"<td> ".$row['ApellidoM']."</td>";
+        echo	"<td> ".$row['Correo']."</td>";
+        echo	"<td> ".$row['Contrasenia']."</td>";
+    echo    	"<td> ".$row['Tipo']."</td>";
+echo        	"<td><button id=\"actualizar\" type=\"submit\"><a href=\"\"><i class=\"fas fa-edit\"></i></a></button></td>";
+echo		"<td><button id=\"eliminar\" type=\"submit\" class=\"btn btn-danger btn-block btn-sm\" action=\"./php/eliminarUser.php\"><i id=\"tra\" class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></td>";          
+echo "</tr>";
+
+}
+
+//echo        "</table>";
+
+ 
+	mysqli_close($conexion);
+?>
+-->
+
+</table> 
 
         <!-- Footer -->
         

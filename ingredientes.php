@@ -38,6 +38,9 @@
    
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <a class="nav-link" href="./indexE.html">Volver</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="./signin.html">Salir</a>
           </li>
       </ul>
@@ -45,38 +48,43 @@
   </div>
 </nav>
 
-<h3 align="center">
-Bienvenido
-</h3>
+	<table border=2px id="ing">
+		<tr>
+			<th>Ingrediente</th> <th>Cantidad</th> <th>Fecha de Caducidad</th> <th>Actualizar</th>  <th>Eliminar</th> 
+		</tr>   
+<?php
 
-<section class="card" id="optionsE">
-		<div class="card-body">
-      <ul class="navbar-nav ml-auto">
-            <a class="nav-link" href="formPan.html">Agregar Pan</a>
-          </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./formIng.html">Agregar nuevo ingrediente</a>
-          </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./ingredientes.php">Inventario de ingredientes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./panes.php">Inventario de Panes</a>
-          </li>
-<li class="nav-item">
-            <a class="nav-link" href="./reparaciones.html">Historial 1 (en mantenimiento)</a>
-          </li>
-<li class="nav-item">
-            <a class="nav-link" href="./reparaciones.html">Historial 2 (en mantenimiento)</a>
-          </li>
-<li class="nav-item">
-            <a class="nav-link" href="./reparaciones.html">Historial 3 (en mantenimiento)</a>
-          </li>
-	</ul>
+    $conn = mysqli_connect('localhost','root','resident2580','concho');
+    $result = mysqli_query($conn, "select * from Ingredientes order by NombreIng asc");
 
-		</div>
-</section>
+ while($row = mysqli_fetch_array($result)) {
+?>
 
+<tr>
+  <th><?php echo $row['NombreIng'];?></th>
+  <th><?php echo $row['Cantidad'];?></th>
+  <th><?php echo $row['fecha'];?></th>
+  <td><button id="actualizar" type="submit"><a href=""><i class="fas fa-edit"></i></a></button></td>
+  <td> <form method="post" action="./php/eliminarUsuario.php">
+	<input type="hidden" name"Nombre" value=<?php echo $row['NombreIng'];?>>
+	<input id="eliminar2" type="submit" value="Eliminar">
+  <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
+
+	</form>
+	</td>
+</tr>
+
+<?php
+}
+mysqli_close($conn);
+?>
+
+ 
+	mysqli_close($conexion);
+?>
+-->
+
+</table> 
 
         <!-- Footer -->
         

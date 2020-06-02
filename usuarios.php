@@ -53,14 +53,9 @@
 			<th>Nombre</th> <th>Apellido Paterno</th> <th>Apellido Materno</th> <th> Correo </th> <th> Password </th> <th> Puesto </th> <th>Modificar</th> <th> Eliminar </th>
 		</tr>   
 <?php
-//require 'conexion.php';
 
     $conn = mysqli_connect('localhost','root','resident2580','concho');
     $result = mysqli_query($conn, "select * from User order by Nombre asc");
-
-		//$sql = "SELECT * from User where tipo = 3 order by Nombre asc";
-	
-//$result = mysqli_query($conexion, $sql);
 
  while($row = mysqli_fetch_array($result)) {
 ?>
