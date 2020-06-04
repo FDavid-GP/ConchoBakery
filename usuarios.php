@@ -67,10 +67,12 @@
   <th><?php echo $row['Correo'];?></th>
   <th><?php echo $row['Contrasenia'];?></th>
   <th><?php echo $row['Tipo'];?></th>
-  <td><button id="actualizar" type="submit"><a href=""><i class="fas fa-edit"></i></a></button></td>
+  <td><form method="post" action="./actualizarEmp.php">
+	<input type="hidden" name="Correo2" value="<?php echo $row['Correo'];?>">
+<button id="actualizar" type="submit"><i class="fas fa-edit"></i></button></form></td>
   <td> <form method="post" action="./php/eliminarUsuario.php">
-	<input type="hidden" name"Correo" value=<?php echo $row['Correo'];?>>
-	<input id="eliminar2" type="submit" value="Eliminar">
+	<input type="hidden" name="Correo" value="<?php echo $row['Correo'];?>">
+
   <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
 
 	</form>

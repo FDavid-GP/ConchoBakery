@@ -11,5 +11,5 @@ $fecha = $_POST['fecha'];
         $result1 = mysqli_query($conexion, $sql);
         $consulta = mysqli_query($conexion, "SELECT * from ingredientes");
         $i = mysqli_num_rows($consulta);
-header("Location: /concho/ingredientes.php");
+header("Location: /concho/ing2.php");
 ?>

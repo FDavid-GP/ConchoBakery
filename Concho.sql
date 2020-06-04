@@ -61,11 +61,11 @@ CREATE PROCEDURE SP_Ingrediente(I_name VARCHAR(50), I_Cantidad VARCHAR(10), I_fe
 INSERT INTO Ingredientes(NombreIng, Cantidad, fecha) VALUES(I_name, I_Cantidad, I_fecha);
 
 
-Create Procedure SP_User_Update(IN U_name VARCHAR(100), IN U_Apellido VARCHAR(50), IN U_ApellidoM VARCHAR(50), IN U_Correo VARCHAR(100), IN U_Contrasenia VARCHAR(30), IN U_Tipo VARCHAR(1))
+Create Procedure SP_User_Update(IN U_id VARCHAR(100), IN U_name VARCHAR(100), IN U_Apellido VARCHAR(50), IN U_ApellidoM VARCHAR(50), IN U_Correo VARCHAR(100), IN U_Contrasenia VARCHAR(30), IN U_Tipo VARCHAR(1))
 UPDATE User
 SET
 Nombre = U_name, ApellidoP = U_Apellido, ApellidoM = U_ApellidoM, Correo = U_Correo, contrasenia = U_Contrasenia, tipo = U_Tipo
-WHERE Correo = U_Correo;
+WHERE Correo = U_id;
 
 CREATE PROCEDURE SP_Pan_Update(IN p_name VARCHAR(50), IN p_imag VARCHAR(250), IN p_Cantidad VARCHAR(10), IN p_precio VARCHAR(10))
 UPDATE Pan

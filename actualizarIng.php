@@ -1,16 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-<!--<div class="jumbotron mt-4">
-  <h1 class="display-4">Notes App Nodejs And Mongodb!</h1>
-  <p class="lead">A simple App to manage Notes developed with Nodejs, Express, Mongodb and Javascript Technologies</p>
-  <hr class="my-4">
-  <p>veniam voluptatibus aliquid unde sit Libero veniam similique ex reiciendis doloribus! Deleniti sunt cum ad est atque. Esse earum
-  </p>
-  <a class="btn btn-primary btn-lg" href="http://faztweb.com" role="button">FaztWeb</a>
-</div>-->
-
-
     <head>
 
 		<!-- Required meta tags -->
@@ -27,76 +17,73 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/media-queries.css">
 	<link href="./css/style.css" rel="stylesheet"/>
-<link href="./css/main.css" rel="stylesheet"/>
+	<link href="./css/main.css" rel="stylesheet"/>
+ <script src="js/formUser.js"></script>
+
 
     </head>
 
-    <body>
+    <body class="text-center">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-   
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./indexE.html">Volver</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signin.html">Salir</a>
-          </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-<h3 align="center">
-Nuestros panes
-</h3>
-
-<div class="row">
 <?php
-
-    $conn = mysqli_connect('localhost','root','resident2580','concho');
-    $result = mysqli_query($conn, "select * from Pan order by NombreP asc");
+$nom = $_POST['Nombre2'];
+  $conn = mysqli_connect('localhost','root','resident2580','concho');
+  $result = mysqli_query($conn, "select * from ingredientes where NombreIng = '".$nom."'");
 
  while($row = mysqli_fetch_array($result)) {
+
 ?>
 
-<div class="col-md-3" id="cardP">
-    <div class="card" id="panesC">
+<div class="row">
+  <div class="col-md-4 mx-auto" id="formU">
+    <div class="card mt-4 text-center">
+      <div class="card-header">
+        <h1 class="h4">
+          Actualizar ingrediente
+        </h1>
+      </div>
+        
       <div class="card-body">
-    <h4 class="card-title d-flex justify-content-between align-items-center">
-           <?php echo $row['NombreP'];?> 
-    </h4> 
-<center><img src=<?php echo $row['Imag'];?>></center>
-        <p>A solo $<?php echo $row['precio'];?> c/u</p>
-	<p>Quedan <?php echo $row['cantidad'];?> piezas de pan </p>
+<div class="form-group">
+<form name="formularioDatos" method="post" action="./php/UpdateIng.php">
+                            <div class="col-md-8">
 
-<form method="post" action="./actualizarPan.php">
-	<input type="hidden" name="Nombre2" value="<?php echo $row['NombreP'];?>">
-<button id="actualizar" type="submit"><i class="fas fa-edit"></i></button>
+                                <input id="fname" name="name" type="text" placeholder="Nombre(s)" class="form-control" value="<?php echo $row['NombreIng'];?>">
+                            </div>
+                        </div>
 
-</form>      
+                        <div class="form-group">
+                            <div class="col-md-8">
+                                <input id="lname" name="cantidad" type="text" placeholder="Cantidad en gramos" class="form-control" value="<?php echo $row['Cantidad'];?>">
+                            </div>
+                        </div>
 
-<form method="post" action="./php/eliminarPan.php">
-	<input type="hidden" name="Nombre" value="<?php echo $row['NombreP'];?>">
-
-  <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
-
-	</form>
-
+                        <div class="form-group">
+                            <div class="col-md-8">
+				<input name="fecha" type="date">
+                            </div>
+                        </div>
 
 
-     </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+				<button  id="can" class="btn btn-primary btn-lg" onclick="cancelar()">Cancelar</button>
+                            </div>
+                        </div>
+
+      </div>
     </div>
-  </div>	  
-
-<?php
+<form>
+  </div>
+</div>
+		<?php
 }
 mysqli_close($conn);
 ?>
-</div>
-        <!-- Footer -->
+<!-- Footer -->
+<!-- Footer -->
         
 
         <!-- Javascript -->

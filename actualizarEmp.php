@@ -31,36 +31,58 @@
     <div class="card mt-4 text-center">
       <div class="card-header">
         <h1 class="h4">
-          Registrar Pan
+          Actualizar Empleado
         </h1>
       </div>
-        
+        <?php
+$nom = $_POST['Correo2'];
+  $conn = mysqli_connect('localhost','root','resident2580','concho');
+  $result = mysqli_query($conn, "select * from user where Correo = '".$nom."'");
+
+ while($row = mysqli_fetch_array($result)) {
+
+?>
       <div class="card-body">
 <div class="form-group">
-<form name="formularioDatos" method="post" action="./php/guardarPan.php">
+<form name="formularioDatos" method="post" action="./php/UpdateUser.php">
                             <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control">
+<input type="hidden" name="Nombre2" value="<?php echo $row['Correo'];?>">
+                                <input id="fname" name="name" type="text" placeholder="Nombre(s)" class="form-control" value="<?php echo $row['Nombre'];?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-8">
-                                <input id="lname" name="imagen" type="text" placeholder="Url de imagen" class="form-control">
+                                <input id="lname" name="lname" type="text" placeholder="Apellido Paterno" class="form-control" value="<?php echo $row['ApellidoP'];?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-8">
-                                <input id="lname2" name="precio" type="text" placeholder="Cantidad" class="form-control">
+                                <input id="lname2" name="lname2" type="text" placeholder="Apellido Materno" class="form-control" value="<?php echo $row['ApellidoM'];?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-8">
-                                <input id="email" name="cantidad" type="text" placeholder="Precio" class="form-control">
+<input type="hidden" name="pass" value="<?php echo $row['Contrasenia'];?>">
+                                <input id="email" name="email" type="text" placeholder="Correo" class="form-control" value="<?php echo $row['Correo'];?>">
                             </div>
                         </div>
 
+			<div class="form-group">
+                            <div class="col-md-8">
+<select id="type" name="Tipo">
+    <option value="1">Gerente</option>
+    <option value="2">Empleado</option>
+  </select>
+                            </div>
+                        </div>
+	<?php
+}
+mysqli_close($conn);
+?>
+<!-- Footer -->
                         <div class="form-group">
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
@@ -70,7 +92,7 @@
 
       </div>
     </div>
-   <form>
+<form>
   </div>
 </div>
 	

@@ -1,24 +1,19 @@
 <?php
 require 'conexion.php';
 session_start();
-/*
-$Nombre = $_POST['Nombre'];
-$ApellidoP = $_POST['ApellidoP'];
-$ApellidoM = $_POST['ApellidoM'];
-$Correo = $_POST['Correo'];
-$Contrasenia = $_POST['Contrasenia'];
+
+$Name = $_POST['name'];
+$id = $_POST['Nombre2'];
+$LastName = $_POST['lname'];
+$LastName2 = $_POST['lname2'];
+$Email = $_POST['email'];
 $Tipo = $_POST['Tipo'];
-*/
-	$sql= "CALL SP_User_Update('h', 'o', 'l', 'a', 'goku', '3')";        
-//	$sql= "CALL SP_User_Update('$Nombre', '$ApellidoP', '$ApellidoM', '$Correo', '$Contrasenia', '$Tipo')";        
-	//$sql= "INSERT INTO User (Nombre, ApellidoP, ApellidoM, Correo, Contrasenia, Tipo) VALUES ('$Nombre', '$ApellidoP', '$ApellidoM', '$Correo', '$Contrasenia', '$Tipo')";
+$Pass = $_POST['pass'];
+//	$sql= "CALL SP_User_Update('h', 'o', 'l', 'a', 'goku', '3')";        
+	$sql= "CALL SP_User_Update('".$id."', '".$Name."', '".$LastName."', '".$LastName2."', '".$Email."', '".$Pass."', '".$Tipo."')";        
         $result1 = mysqli_query($conexion, $sql);
-       // $consulta = mysqli_query($conexion, "SELECT * from User");
-        //$i = mysqli_num_rows($consulta);
-    if($result1){
-        echo "Correcto";
-    }
-    else{
-        echo "Error";
-    }
+       $consulta = mysqli_query($conexion, "SELECT * from User");
+        $i = mysqli_num_rows($consulta);
+header("Location: /concho/usuarios.php");
+
 ?>

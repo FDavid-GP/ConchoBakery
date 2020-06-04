@@ -2,7 +2,7 @@
 require 'conexion.php';
 
 $Email = $_POST['Correo'];
-
+//echo "$Email";
 	$sql= "CALL SP_User_Delete('".$Email."')";        
 //	$sql= "CALL SP_User_Delete(3)";        
   

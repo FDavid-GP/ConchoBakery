@@ -10,7 +10,7 @@ if((!empty($correo)) && (!empty($contrasena))){
 	/*if(strlen($contrasena) < 6){
 		echo "<script language=JavaScript>
 		alert('LA CONTRASEÑA DEBE DE TENER MAS DE 8 CARACTERES');
-		window.location = '/ConchoBakery/signin.html'
+		window.location = '/concho/signin.html'
 		</script>";
 	}*/
 	//else{
@@ -26,19 +26,19 @@ if((!empty($correo)) && (!empty($contrasena))){
         $result = mysqli_fetch_array($query);
 
         if (($result['Correo'] == $correo) && ($result['Contrasenia'] == $contrasena) && $result['Tipo'] == 1){
-        		header('Location: /ConchoBakery/IndexG.html');
+        		header('Location: /concho/indexG.html');
         }
         else if(($result['Correo'] == $correo) && ($result['Contrasenia'] == $contrasena) && $result['Tipo'] == 2){
-        		header('Location: /ConchoBakery/IndexE.html');
+        		header('Location: /concho/indexE.html');
         }
         else if(($result['Correo'] == $correo) && ($result['Contrasenia'] == $contrasena)){
-        		header('Location: /ConchoBakery/IndexC.html');
+        		header('Location: /concho/indexC.php');
         }
         else
         {
         	echo "<script language=JavaScript>
         		  alert('EL USUARIO O CONTRASEÑA NO ES CORRECTO');
-        		  window.location = '/ConchoBakery/signin.html'
+        		  window.location = '/concho/signin.html'
         		  </script>"; 
 		}
 
@@ -51,7 +51,7 @@ else
 
 	echo "<script language=JavaScript>
 		  alert('POR FAVOR LLENE TODOS LOS CAMPOS REQUERIDOS');
-		  window.location = '/ConchoBakery/signin.html');
+		  window.location = '/concho/signin.html');
 		  </script>";
 }
    

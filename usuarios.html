@@ -38,7 +38,7 @@
    
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="./indexE.html">Volver</a>
+            <a class="nav-link" href="./indexG.html">Volver</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./signin.html">Salir</a>
@@ -48,54 +48,63 @@
   </div>
 </nav>
 
-
-<h3 align="center">
-Nuestros panes
-</h3>
-
-<div class="row">
+	<table border=2px id="personal">
+		<tr>
+			<th>Nombre</th> <th>Apellido Paterno</th> <th>Apellido Materno</th> <th> Correo </th> <th> Password </th> <th> Puesto </th> <th>Modificar</th> <th> Eliminar </th>
+		</tr>   
 <?php
 
     $conn = mysqli_connect('localhost','root','resident2580','concho');
-    $result = mysqli_query($conn, "select * from Pan order by NombreP asc");
+    $result = mysqli_query($conn, "select * from User order by Nombre asc");
 
  while($row = mysqli_fetch_array($result)) {
 ?>
 
-<div class="col-md-3" id="cardP">
-    <div class="card" id="panesC">
-      <div class="card-body">
-    <h4 class="card-title d-flex justify-content-between align-items-center">
-           <?php echo $row['NombreP'];?> 
-    </h4> 
-<center><img src=<?php echo $row['Imag'];?>></center>
-        <p>A solo $<?php echo $row['precio'];?> c/u</p>
-	<p>Quedan <?php echo $row['cantidad'];?> piezas de pan </p>
-
-<form method="post" action="./actualizarPan.php">
-	<input type="hidden" name="Nombre2" value="<?php echo $row['NombreP'];?>">
-<button id="actualizar" type="submit"><i class="fas fa-edit"></i></button>
-
-</form>      
-
-<form method="post" action="./php/eliminarPan.php">
-	<input type="hidden" name="Nombre" value="<?php echo $row['NombreP'];?>">
-
+<tr>
+  <th><?php echo $row['Nombre'];?></th>
+  <th><?php echo $row['ApellidoP'];?></th>
+  <th><?php echo $row['ApellidoM'];?></th>
+  <th><?php echo $row['Correo'];?></th>
+  <th><?php echo $row['Contrasenia'];?></th>
+  <th><?php echo $row['Tipo'];?></th>
+  <td><button id="actualizar" type="submit"><a href=""><i class="fas fa-edit"></i></a></button></td>
+  <td> <form method="post" action="./php/eliminarUsuario.php">
+	<input type="hidden" name"Correo" value=<?php echo $row['Correo'];?>>
+	<input id="eliminar2" type="submit" value="Eliminar">
   <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
 
 	</form>
-
-
-
-     </div>
-    </div>
-  </div>	  
+	</td>
+</tr>
 
 <?php
 }
 mysqli_close($conn);
 ?>
-</div>
+
+<!--
+echo 	"<tr>";
+        echo	"<td> ".$row[Nombre]."</td>";
+        echo	"<td> ".$row['ApellidoP']."</td>";
+        echo	"<td> ".$row['ApellidoM']."</td>";
+        echo	"<td> ".$row['Correo']."</td>";
+        echo	"<td> ".$row['Contrasenia']."</td>";
+    echo    	"<td> ".$row['Tipo']."</td>";
+echo        	"<td><button id=\"actualizar\" type=\"submit\"><a href=\"\"><i class=\"fas fa-edit\"></i></a></button></td>";
+echo		"<td><button id=\"eliminar\" type=\"submit\" class=\"btn btn-danger btn-block btn-sm\" action=\"./php/eliminarUser.php\"><i id=\"tra\" class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></td>";          
+echo "</tr>";
+
+}
+
+//echo        "</table>";
+
+ 
+	mysqli_close($conexion);
+?>
+-->
+
+</table> 
+
         <!-- Footer -->
         
 

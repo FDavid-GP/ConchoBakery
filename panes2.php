@@ -72,13 +72,13 @@ Nuestros panes
         <p>A solo $<?php echo $row['precio'];?> c/u</p>
 	<p>Quedan <?php echo $row['cantidad'];?> piezas de pan </p>
 
-<form method="post" action="./actualizarPan.php">
+<form method="post" action="./actualizarPan2.php">
 	<input type="hidden" name="Nombre2" value="<?php echo $row['NombreP'];?>">
 <button id="actualizar" type="submit"><i class="fas fa-edit"></i></button>
 
 </form>      
 
-<form method="post" action="./php/eliminarPan.php">
+<form method="post" action="./php/eliminarPan2.php">
 	<input type="hidden" name="Nombre" value="<?php echo $row['NombreP'];?>">
 
   <button id="eliminar2" type="submit"><i id="tra" class="fa fa-trash" aria-hidden="true"></i></button>          
